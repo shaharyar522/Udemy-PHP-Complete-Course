@@ -1,19 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-
 <body>
-    <?php
-    $name = "Hello i am  Shari a Good boy and software developer ";
-    ?>
-
-
-
-    <h1><?php echo $name; ?></h1>
+    
+<!-- this is git a version control system .. -->
+ 
 </body>
 </html>
