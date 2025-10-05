@@ -8,16 +8,15 @@
 </head>
 
 <body>
-  <?php
-
-  $name = "shari";
-
-  ?>
-
-
+  <?php 
+  $name = "shari"; ?>
   <!-- ul>li*5 -->
-<h1>now i am <?php echo $name; ?></h1>
+
+  <h1>now i am <?php echo $name; ?></h1>
+
+ 
+
+Reach Out and Let's Transform Ideas into Reality
 
 </body>
-
 </html>
