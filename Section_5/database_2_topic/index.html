@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    hello
+
+
+    <script>
+
+        document.addEventListener('DOMContentLoaded', () => {
+
+            async function loadTask() {
+
+                const response = await fetch('tasks.php');
+
+                const tasks = await response.json();
+
+                document.write(tasks);
+            }
+            loadTask()
+        });
+    </script>
+
+
+</body>
+
+</html>
