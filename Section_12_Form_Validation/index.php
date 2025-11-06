@@ -9,9 +9,11 @@
     <h2>Simple From</h2>
 
     <form action="process.php" method="POST" autocomplete="off">
+        
         <input  name="username" type="text" placeholder="Enter your username">
         <input name="password" type="password" placeholder="Enter you password">
-        <input type="submit">
+        <input type="submit"> 
+
     </form>
 
     <!-- http://localhost/udemy/Section_12_Form_Validation/process.php?username=shari&password=123

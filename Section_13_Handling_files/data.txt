@@ -1,0 +1,7 @@
+
+fopen() : open a file.
+fwrite() :  Writes data to files.
+fread() : read data from a file.
+fclose(): close file 
+file_exists : chek file is file_exists 
+unlink() : delete file

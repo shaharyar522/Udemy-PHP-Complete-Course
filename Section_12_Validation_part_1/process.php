@@ -14,12 +14,12 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
     // email validate
 
-    if (empty($_POST['email'])) {
+    if (empty($_POST['email'])){
+        
         $emailErr = "email is required";
+
     } else {
         $email =  htmlspecialchars(trim($_POST['email']));
-        
-
         //chek infomration 
         if(!filter_var($email , FILTER_VALIDATE_EMAIL)){
               $email = "Invalid email formate";
