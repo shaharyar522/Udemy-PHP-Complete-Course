@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>File Upload Process in PHP — Quick Guide</title>
+
+  <style>
+    :root{
+      --bg:#0f1724;
+      --card:#0b1220;
+      --muted:#94a3b8;
+      --accent:#06b6d4;
+      --success:#10b981;
+      --danger:#ef4444;
+      --soft:#e6eef6;
+      --code-bg:#071226;
+      --max-width:900px;
+    }
+    /* Light-mode fallback for printing or if user wants */
+    @media (prefers-color-scheme: light){
+      :root{
+        --bg:#f8fafc;
+        --card:#ffffff;
+        --muted:#475569;
+        --accent:#0ea5e9;
+        --success:#059669;
+        --danger:#dc2626;
+        --soft:#0f1724;
+        --code-bg:#f1f5f9;
+      }
+    }
+
+    body{
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      margin:0;
+      background:linear-gradient(180deg,var(--bg) 0%, #041026 100%);
+      color:var(--soft);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      padding:32px 16px;
+      display:flex;
+      justify-content:center;
+    }
+
+    .wrap{
+      max-width:var(--max-width);
+      width:100%;
+    }
+
+    header{
+      margin-bottom:20px;
+      display:flex;
+      gap:12px;
+      align-items:center;
+    }
+    header h1{
+      margin:0;
+      font-size:20px;
+      color:var(--soft);
+    }
+    header p{ margin:0; color:var(--muted); font-size:13px; }
+
+    .card{
+      background:var(--card);
+      border-radius:10px;
+      padding:20px;
+      box-shadow:0 6px 18px rgba(2,6,23,0.6);
+      margin-bottom:18px;
+      line-height:1.55;
+    }
+
+    h2{ color:var(--accent); margin-top:0; }
+    h3{ color:var(--soft); margin-bottom:6px; font-size:16px; }
+    p{ color:var(--muted); margin:8px 0 12px; }
+
+    .steps{ counter-reset:step; }
+    .step{
+      display:flex;
+      gap:12px;
+      align-items:flex-start;
+      margin:12px 0;
+    }
+    .step .num{
+      width:36px;
+      height:36px;
+      background:linear-gradient(180deg,var(--accent), #0284c7);
+      border-radius:10px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-weight:700;
+      color:#021026;
+      box-shadow:0 4px 10px rgba(2,6,23,0.6);
+    }
+    .step .content{ flex:1; }
+
+    pre.code{
+      background:var(--code-bg);
+      color:var(--soft);
+      padding:12px;
+      border-radius:8px;
+      overflow:auto;
+      font-family: "Courier New", Courier, monospace;
+      font-size:13px;
+      margin:12px 0;
+      box-shadow: inset 0 -2px 8px rgba(0,0,0,0.3);
+    }
+
+    table{
+      width:100%;
+      border-collapse:collapse;
+      margin:10px 0 16px;
+      color:var(--muted);
+    }
+    table th, table td{
+      padding:8px 10px;
+      border-bottom:1px dashed rgba(255,255,255,0.03);
+    }
+    table th{ text-align:left; color:var(--soft); font-weight:600; font-size:14px; }
+
+    .note{
+      background:rgba(14,165,233,0.06);
+      color:var(--accent);
+      padding:10px;
+      border-radius:8px;
+      font-weight:600;
+      margin:10px 0;
+    }
+
+    .kbd{
+      background:#071b2a;
+      color:var(--soft);
+      padding:2px 8px;
+      border-radius:6px;
+      font-family:monospace;
+      font-size:13px;
+      display:inline-block;
+    }
+
+    ul{ margin:8px 0 12px; color:var(--muted); }
+    li{ margin:6px 0; }
+
+    footer{ text-align:center; color:var(--muted); font-size:13px; margin-top:6px; }
+    a.inline{ color:var(--accent); text-decoration:none; font-weight:600; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div>
+        <h1>File Upload Process in PHP — Quick Guide</h1>
+        <p>Clear step-by-step explanation, PHP settings for large uploads, and security best practices.</p>
+      </div>
+    </header>
+
+    <article class="card">
+      <h2>The Upload Process — Step by Step</h2>
+
+      <div class="steps">
+        <div class="step">
+          <div class="num">1</div>
+          <div class="content">
+            <h3>Client uploads file</h3>
+            <p>User selects a file and submits the form. The browser encodes the file and sends it inside the POST request — typically using <code>enctype="multipart/form-data"</code>.</p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="num">2</div>
+          <div class="content">
+            <h3>Temporary storage on server</h3>
+            <p>PHP stores the uploaded file in a temporary directory. You can access its temporary name with <code>$_FILES['uploaded_file']['tmp_name']</code>. The temporary file exists only while the script runs.</p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="num">3</div>
+          <div class="content">
+            <h3>Move to permanent location</h3>
+            <p>Use <code>move_uploaded_file()</code> to move the file from the temporary path to your chosen destination (for example <code>uploads/image.jpg</code>). This step makes the file permanent.</p>
+            <pre class="code">
+// example (PHP)
+$src = $_FILES['image']['tmp_name'];
+$dest = __DIR__ . '/uploads/' . basename($_FILES['image']['name']);
+
+if (move_uploaded_file($src, $dest)) {
+    echo 'Upload successful';
+} else {
+    echo 'Upload failed';
+}
+            </pre>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="num">4</div>
+          <div class="content">
+            <h3>Temporary file deletion</h3>
+            <p>If you don't move or process the uploaded file, PHP removes the temporary file automatically once the script completes.</p>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <article class="card">
+      <h2>Example Flow</h2>
+      <p>A short example: the user uploads <code>image.jpg</code>. PHP saves it temporarily (e.g. <code>/tmp/phpYzdqkD</code>). The script calls <code>move_uploaded_file()</code> to move it to <code>uploads/image.jpg</code>. The temp file is then removed.</p>
+
+      <h3>HTML form example</h3>
+      <pre class="code">
+&lt;form action="upload.php" method="POST" enctype="multipart/form-data"&gt;
+  &lt;input type="file" name="image" accept="image/*"&gt;
+  &lt;button type="submit"&gt;Upload&lt;/button&gt;
+&lt;/form&gt;
+      </pre>
+    </article>
+
+    <article class="card">
+      <h2>Key php.ini settings for large uploads</h2>
+      <p>If you accept large files, update these directives in <code>php.ini</code>. <strong>Important:</strong> <code>post_max_size</code> must be larger than or equal to <code>upload_max_filesize</code>.</p>
+
+      <pre class="code">
+upload_max_filesize = 100M
+post_max_size       = 128M
+max_execution_time  = 300
+max_input_time      = 300
+memory_limit        = 256M
+max_file_uploads    = 20
+; optionally:
+; upload_tmp_dir    = "/path/to/tmp"
+      </pre>
+
+      <p class="note">Tip: after changing php.ini, restart your web server (Apache / Nginx + PHP-FPM) so new values take effect.</p>
+    </article>
+
+    <article class="card">
+      <h2>Security Considerations (Must do)</h2>
+      <ul>
+        <li><strong>Validate file type:</strong> Check MIME type with <code>mime_content_type()</code> and validate extension. Do not trust user input.</li>
+        <li><strong>Limit file size:</strong> Reject files that exceed your size limits on both client and server sides.</li>
+        <li><strong>Store files securely:</strong> Avoid storing uploads in a public webroot. If files must be public, store outside webroot and serve via a controller or set correct permissions.</li>
+        <li><strong>Rename files:</strong> Save files with a safe unique name (e.g. generated hash or timestamp) to prevent overwrites and path injection.</li>
+        <li><strong>Set proper permissions:</strong> Uploaded files should not be executable. Use restrictive permissions (e.g., 0644).</li>
+        <li><strong>Scan for malware:</strong> For high-risk apps, pass uploads to an antivirus scanner or cloud scanning service before use.</li>
+      </ul>
+
+      <h3>Example: Safe filename</h3>
+      <pre class="code">
+// PHP: generate unique, safe filename
+$ext = pathinfo($_FILES['image']['name'], PATHINFO_EXTENSION);
+$filename = bin2hex(random_bytes(12)) . '.' . strtolower($ext);
+$dest = __DIR__ . '/uploads/' . $filename;
+move_uploaded_file($_FILES['image']['tmp_name'], $dest);
+      </pre>
+    </article>
+
+    <article class="card">
+      <h2>Short Checklist</h2>
+      <table>
+        <thead>
+          <tr><th>Area</th><th>Action</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Form</td><td>Use <code>enctype="multipart/form-data"</code> and <code>method="POST"</code></td></tr>
+          <tr><td>php.ini</td><td>Set <code>upload_max_filesize</code>, <code>post_max_size</code>, times and memory limits</td></tr>
+          <tr><td>Server</td><td>Ensure <code>upload_tmp_dir</code> is writable and restart server after changes</td></tr>
+          <tr><td>Security</td><td>Validate MIME/extension, rename files, set safe permissions</td></tr>
+        </tbody>
+      </table>
+    </article>
+
+    <article class="card">
+      <h2>Final Notes</h2>
+      <p>If you accept huge uploads (hundreds of MB or GB), consider:</p>
+      <ul>
+        <li>Using chunked uploads (client splits file into parts) and re-assembling on server.</li>
+        <li>Using direct-to-cloud uploads (browser → S3 / GCS) with signed uploads to avoid server memory limits.</li>
+        <li>Implementing progress bars and resumable uploads for better user experience.</li>
+      </ul>
+    </article>
+
+    <footer>
+      <div>Save this as <span class="kbd">file-upload-guide.html</span> — open in any browser. Need a printable PDF or Urdu version? <a class="inline" href="#">Tell me</a>.</div>
+    </footer>
+  </div>
+</body>
+</html>
