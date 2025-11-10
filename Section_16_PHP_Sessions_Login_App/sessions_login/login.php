@@ -13,14 +13,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $input_password = $_POST["password"];
 
 
-    if ($input_username === $username && $input_password == $password) {
+    if($input_username === $username && $input_password == $password) {
+
         $_SESSION['loggedin'] = true;
         $_SESSION["username"] = $input_username;
         //set the haeder
         header("location: admin.php");
         exit;
+        
     } else {
+
         $message = "Invalid username and password";
+
     }
 }
 
@@ -30,7 +34,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">

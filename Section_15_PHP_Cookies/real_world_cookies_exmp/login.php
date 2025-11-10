@@ -43,7 +43,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
     <form  method="POST" autocomplete="off">
 
-        Email : <input type="email" name="email" value="<?php if(isset($_COOKIE["user_email"])){ echo $_COOKIE["user_email"];}?>"> <br><br>
+        Email : <input type="email" name="email" value="<?php if(isset($_COOKIE["user_email"])){ echo $_COOKIE["user_email"];}?>"><br><br>
         password <input type="password" name="password" value="<?php if(isset($_COOKIE["user_password"])){echo $_COOKIE["user_password"];}?>">
         <br><br> 
         <input type="checkbox" name="remember" <?php if(isset($_COOKIE["remember"])) { echo "checked"; } ?>> Remember me
