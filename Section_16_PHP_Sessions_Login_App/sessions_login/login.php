@@ -3,6 +3,7 @@ session_start();
 
 
 $message = "";
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     //Example credentionals
@@ -12,13 +13,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $input_username =  $_POST["username"];
     $input_password = $_POST["password"];
 
-
     if($input_username === $username && $input_password == $password) {
 
         $_SESSION['loggedin'] = true;
         $_SESSION["username"] = $input_username;
         //set the haeder
-        header("location: admin.php");
+        header("Location: admin.php");
         exit;
         
     } else {
