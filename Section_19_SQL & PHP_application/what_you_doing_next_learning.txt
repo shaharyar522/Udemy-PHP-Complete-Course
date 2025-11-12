@@ -1,0 +1,78 @@
+What you are going to learn on this section
+1. Core PHP Programming Concepts
+PHP Syntax and Basics:
+
+Writing PHP code embedded within HTML.
+
+Understanding how server-side scripts process data from forms.
+
+Session Management:
+
+Using session_start() to manage user sessions.
+
+Storing and retrieving session data (e.g., checking if a user is logged in or saving a user's session across multiple pages).
+
+Logging users in and out by setting and unsetting session variables.
+
+Working with Global Variables:
+
+Handling $_POST to retrieve form data securely.
+
+Understanding the lifecycle of HTTP requests and how data is passed between client and server.
+
+
+
+2. Database Connectivity Using MySQLi Procedural
+Connecting to a MySQL Database:
+
+Using mysqli_connect() to establish a connection to a MySQL database.
+
+Handling connection errors and ensuring the app gracefully handles database-related issues.
+
+SQL Query Execution:
+
+Executing queries with MySQLi procedural functions such as mysqli_query() to interact with the database.
+
+Performing CRUD operations:
+
+Create: Inserting data into the database using INSERT queries.
+
+Read: Retrieving data with SELECT queries.
+
+Update: Modifying existing data using UPDATE queries.
+
+Delete: Removing data using DELETE queries.
+
+SQL Query Structure:
+
+Writing SQL queries for basic user management and posts, learning the structure and clauses of SQL (e.g., SELECT, WHERE, ORDER BY, JOIN).
+
+
+
+3. Sanitizing User Input
+Escaping User Input with mysqli_real_escape_string():
+
+Preventing SQL injection by using mysqli_real_escape_string() to sanitize user inputs before incorporating them into SQL queries.
+
+Learning why input sanitization is necessary and how it protects web applications from common security vulnerabilities
+
+
+
+4. Building a User Authentication System
+User Registration:
+
+Building a form to collect and process user input (username, email, and password).
+
+Using password_hash() to securely hash passwords before storing them in the database.
+
+User Login:
+
+Authenticating users by retrieving the stored password hash and using password_verify() to compare it with the entered password.
+
+Redirecting users to protected pages (e.g., admin dashboard) once they are authenticated.
+
+Session Management for User Authentication:
+
+Maintaining the login state by storing the user’s information in the session (using $_SESSION).
+
+Implementing secure access control by restricting access to specific pages (such as admin.php) based on the user’s session status.
