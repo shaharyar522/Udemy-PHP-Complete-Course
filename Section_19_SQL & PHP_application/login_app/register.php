@@ -1,9 +1,6 @@
 <?php
 include 'db.php';
 
-
-
-
 $error = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -11,18 +8,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $user_email = isset($_POST["email"]) ? htmlspecialchars(trim($_POST["email"])) : "";
     $password =  htmlspecialchars(trim($_POST["password"]));
     $confirm_password =  htmlspecialchars(trim($_POST["confirm_password"]));
-//check the password and confirm password is equal
+    //check the password and confirm password is equal
     if ($password !== $confirm_password) {
         $error =  "Password does not match";
     } else {
-
         $password_hastag = password_hash($password, PASSWORD_DEFAULT);
-
 
         //select data
         $sql = "SELECT * FROM users WHERE username = '$name' LIMIT 1";
         $result = mysqli_query($conn, $sql);
-    //check the username is exit ;
+        //check the username is exit ;
         if (mysqli_num_rows($result) === 1) {
             echo "Username already exit, Please Choose anohter";
         } else {
@@ -47,7 +42,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   
+
     <title>Registration</title>
 </head>
 
@@ -65,7 +60,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
 
-    <form action="" method="POST" >
+    <form action="" method="POST">
 
         <label for="username">Username:</label><br>
         <input type="text" id="username" name="username"><br><br>
@@ -85,8 +80,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
 </body>
+
 </html>
 <!-- db colse optinal but fast applicatio -->
- <?php 
- mysqli_close($conn);
- ?>
+<?php
+mysqli_close($conn);
+?>

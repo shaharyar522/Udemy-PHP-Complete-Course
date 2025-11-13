@@ -1,11 +1,9 @@
 <?php   
 session_start();
-
 if(!isset($_SESSION["log_in"]) && isset($_POST["log_in"]) !== true){
     header("Location: login.php");
     exit();
 }
-
 ?>
 
 <!DOCTYPE html>
@@ -18,5 +16,6 @@ if(!isset($_SESSION["log_in"]) && isset($_POST["log_in"]) !== true){
 <body>
     <h1>admin</h1>
     <h3>well come admin</h3>
+    <a href="logout.php">Logout</a>
 </body>
 </html>

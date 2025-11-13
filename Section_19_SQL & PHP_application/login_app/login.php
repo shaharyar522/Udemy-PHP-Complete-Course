@@ -1,6 +1,9 @@
 <?php
 include 'db.php';
 session_start();
+if(isset($_SESSION["log_in"]) && $_SESSION["log_in"] === true){
+    header("Location: admin.php");
+}
 
 $error = "";
 
@@ -8,15 +11,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $name =  htmlspecialchars(trim($_POST["username"]));
     $password =  htmlspecialchars(trim($_POST["password"]));
-
+    
     //select data
-
     $sql = "SELECT * FROM users WHERE username = '$name' LIMIT 1";
     $result = mysqli_query($conn, $sql);
 
     if(mysqli_num_rows($result) === 1) {
+        
         $user = mysqli_fetch_assoc($result);
-        if (password_verify($password, $user['password'])) {
+        
+        if (password_verify($password, $user['password'])){
             $_SESSION['log_in'] = true;
             $_SESSION['username'] = $user['username'];
             header("Location: admin.php");
@@ -68,6 +72,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <input type="password" id="password" name="password"><br><br>
 
         <input type="submit" value="Login">
+        
     </form>
 
 

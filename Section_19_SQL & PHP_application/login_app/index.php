@@ -1,23 +1,11 @@
-<?php  
-include ('db.php');
+<?php
+include('partials/header.php');
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login App with SQL and PHP</title>
-</head>
-<body>
-    <h2>Well to the home page</h2> 
+<h2>Well to the home page</h2>
+<?php include('partials/navigation.php'); ?>
 
-     <p>
-        <a href="register.php">Register</a>
-    </p>
-    
-    <p>
-        <a href="login.php">Login</a>
-    </p>
-</body>
-</html>
+
+<?php
+include("partials/footer.php");
+?>
