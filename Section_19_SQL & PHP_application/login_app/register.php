@@ -1,5 +1,6 @@
 <?php
-include 'db.php';
+include('partials/header.php');
+include('partials/navigation.php');
 
 $error = "";
 
@@ -20,7 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         //check the username is exit ;
         if (mysqli_num_rows($result) === 1) {
             echo "Username already exit, Please Choose anohter";
-        }else {
+        } else {
             //insert data
             $sql = "INSERT INTO users (username, email, password) VALUES ('$name', '$user_email', '$password_hastag')";
             if (mysqli_query($conn, $sql)) {
@@ -33,15 +34,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 };
 
 //mysqli_query : sever ko sql query send karnay ki ek query hain .
+
+
 ?>
+<h2>Register</h2>
 
 
-<?php 
-include('partials/header.php');
-include('partials/navigation.php');
-?>
-
-    <h2>Register</h2>
+<div class="container">
 
     <?php if ($error): ?>
         <p style="color:red">
@@ -49,16 +48,12 @@ include('partials/navigation.php');
         </p>
     <?php endif; ?>
 
-
-
-
-
     <form action="" method="POST">
 
         <label for="username">Username:</label><br>
         <input type="text" id="username" name="username"><br><br>
 
-        <label for="email">Email:</label><br>  
+        <label for="email">Email:</label><br>
         <input type="email" id="email" name="email"><br><br>
 
         <label for="password">Password:</label><br>
@@ -70,8 +65,8 @@ include('partials/navigation.php');
         <input type="submit" value="Register">
     </form>
 
-
-<?php  
+</div>
+<?php
 
 ?>
 <!-- db colse optinal but fast applicatio -->

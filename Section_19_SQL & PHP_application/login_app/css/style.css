@@ -34,3 +34,8 @@ body {
         background-color: #575757;
         color: white;
     }
+
+    nav ul li a.active {
+        background-color: #575757;
+        color: yellow;
+    }

@@ -1,4 +1,6 @@
 <?php
+include('partials/header.php');
+include('partials/navigation.php');
 session_start();
 if (!isset($_SESSION["log_in"]) && isset($_POST["log_in"]) !== true) {
     header("Location: login.php");
@@ -6,13 +8,11 @@ if (!isset($_SESSION["log_in"]) && isset($_POST["log_in"]) !== true) {
 }
 ?>
 
-<?php
-include('partials/header.php');
-include('partials/navigation.php');
-?>
 
-<h1>admin</h1>
-<h3>well come admin</h3>
+<div class="container">
+    <h2>Well to Admin <?php echo $_SESSION["username"];  ?></h2>
+</div>
+
 <a href="logout.php">Logout</a>
 
 <?php

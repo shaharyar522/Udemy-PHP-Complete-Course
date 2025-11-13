@@ -1,5 +1,10 @@
+
 <?php
-include 'db.php';
+
+include('partials/header.php');
+include('partials/navigation.php');
+
+
 session_start();
 if(isset($_SESSION["log_in"]) && $_SESSION["log_in"] === true){
     header("Location: admin.php");
@@ -34,46 +39,33 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
 }
-
-
 //mysqli_query : sever ko sql query send karnay ki ek query hain .
 ?>
 
 
-<?php 
-include('partials/header.php');
-include('partials/navigation.php');
-?>
+<div class="container" >
 
     <h2>Login</h2>
-
     <?php if ($error): ?>
         <p style="color:red">
             <?php echo $error; ?>
         </p>
     <?php endif; ?>
 
-
-
-
-
     <form action="" method="POST">
-
         <label for="username">Username:</label><br>
         <input type="text" id="username" name="username"><br><br>
-
         <label for="password">Password:</label><br>
         <input type="password" id="password" name="password"><br><br>
-
         <input type="submit" value="Login">
-        
     </form>
+    
+</div>
 
 
 <?php  
 include('partials/footer.php');
 ?>
-
 <!-- db colse optinal but fast applicatio -->
 <?php
 mysqli_close($conn);
