@@ -20,7 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         //check the username is exit ;
         if (mysqli_num_rows($result) === 1) {
             echo "Username already exit, Please Choose anohter";
-        } else {
+        }else {
             //insert data
             $sql = "INSERT INTO users (username, email, password) VALUES ('$name', '$user_email', '$password_hastag')";
             if (mysqli_query($conn, $sql)) {
@@ -36,17 +36,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 ?>
 
 
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Registration</title>
-</head>
-
-<body>
+<?php 
+include('partials/header.php');
+include('partials/navigation.php');
+?>
 
     <h2>Register</h2>
 
@@ -65,7 +58,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <label for="username">Username:</label><br>
         <input type="text" id="username" name="username"><br><br>
 
-        <label for="email">Email:</label><br>
+        <label for="email">Email:</label><br>  
         <input type="email" id="email" name="email"><br><br>
 
         <label for="password">Password:</label><br>
@@ -78,10 +71,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </form>
 
 
+<?php  
 
-</body>
-
-</html>
+?>
 <!-- db colse optinal but fast applicatio -->
 <?php
 mysqli_close($conn);

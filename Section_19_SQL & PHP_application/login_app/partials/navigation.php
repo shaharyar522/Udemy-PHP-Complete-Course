@@ -13,3 +13,11 @@
         <?php endif; ?>
     </ul>
 </nav>
+<!-- matalb k jb main index par jao ga agr user session log nhi ahin --
+ uay tu lazmi hi dehkain ga laken  us k necay mohjy-->
+
+ <!-- agr login hain  -->
+<!--  home , Admin , Logout  ko show karo -->     
+
+<!-- agr login nhi hain -->
+ <!-- home , Register , login  ko show karo -->

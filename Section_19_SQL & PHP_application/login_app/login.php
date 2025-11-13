@@ -5,7 +5,7 @@ if(isset($_SESSION["log_in"]) && $_SESSION["log_in"] === true){
     header("Location: admin.php");
 }
 
-$error = "";
+$error = ""; 
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
@@ -40,16 +40,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 ?>
 
 
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registration</title>
-</head>
-
-<body>
+<?php 
+include('partials/header.php');
+include('partials/navigation.php');
+?>
 
     <h2>Login</h2>
 
@@ -76,10 +70,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </form>
 
 
+<?php  
+include('partials/footer.php');
+?>
 
-</body>
-
-</html>
 <!-- db colse optinal but fast applicatio -->
 <?php
 mysqli_close($conn);
