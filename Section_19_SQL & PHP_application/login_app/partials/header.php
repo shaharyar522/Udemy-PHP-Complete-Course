@@ -1,5 +1,6 @@
 <?php
 include('db.php');
+include "functions.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -11,5 +12,6 @@ include('db.php');
     <link rel="stylesheet" href="css/style.css">
 </head>
 
-<body>
+<body class="<?php echo getPageClass(); ?>">
+
 </body>

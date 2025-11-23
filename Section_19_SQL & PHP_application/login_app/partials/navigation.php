@@ -1,7 +1,3 @@
-<?php 
-include "functions.php";
-?>
-
 <nav>
     <ul>
         <li><a class="<?php echo setActiveClass('index.php'); ?>" href="index.php">Home</a></li>

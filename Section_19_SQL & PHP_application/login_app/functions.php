@@ -7,15 +7,15 @@
      $current_page = basename($_SERVER['PHP_SELF']);
      return ($current_page === $pagename ) ? "active": '';
  }
-
-
-
  // uay code hian   matlab k  k  php k andar es code ko lehkon ga
 //  echo setActiveClass('index');"//
-
 // bss page name change karna hnga
  
 
+//uay or function hain jo main body main main add kro ga
+function getPageClass(){
+    return basename($_SERVER['PHP_SELF'], ".php");
+}
 
 
 

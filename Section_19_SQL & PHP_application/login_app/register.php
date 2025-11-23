@@ -32,12 +32,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     }
 };
-
 //mysqli_query : sever ko sql query send karnay ki ek query hain .
-
-
 ?>
-<h2>Register</h2>
+
 
 
 <div class="container">
@@ -47,24 +44,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <?php echo $error; ?>
         </p>
     <?php endif; ?>
+<h2>Register</h2>
+    <div class="form-container">
+        <form action="" method="POST">
+            <label for="username">Username:</label><br>
+            <input type="text" id="username" name="username"><br><br>
 
-    <form action="" method="POST">
+            <label for="email">Email:</label><br>
+            <input type="email" id="email" name="email"><br><br>
 
-        <label for="username">Username:</label><br>
-        <input type="text" id="username" name="username"><br><br>
+            <label for="password">Password:</label><br>
+            <input type="password" id="password" name="password"><br><br>
 
-        <label for="email">Email:</label><br>
-        <input type="email" id="email" name="email"><br><br>
+            <label for="confirm_password">Confirm Password:</label><br>
+            <input type="password" id="confirm_password" name="confirm_password" required><br><br>
 
-        <label for="password">Password:</label><br>
-        <input type="password" id="password" name="password"><br><br>
-
-        <label for="confirm_password">Confirm Password:</label><br>
-        <input type="password" id="confirm_password" name="confirm_password" required><br><br>
-
-        <input type="submit" value="Register">
-    </form>
-
+            <input type="submit" value="Register">
+        </form>
+    </div>
 </div>
 <?php
 

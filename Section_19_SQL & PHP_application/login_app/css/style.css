@@ -3,6 +3,36 @@ body {
         padding-top: 50px;
     }
 
+    /* uay body.index hum ny function k throw class add ki hain hain or wo base hn gi mtlab
+    k index , register , login */
+   body.index {
+    background-color: #f4f4f4;
+}
+
+body.register {
+    background-color: #fff3e0;
+}
+
+body.login {
+    background-color: #6399abd9;
+}
+
+/* mtlb k register ko or login ko dono ko center kya hian hain nice staff */
+body.register, body.login .form-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60vh;
+}
+    /* nice staff amazing */
+body.register form ,body.login form{
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
+}
+
+
     nav {
         background-color: #333;
         position: fixed;
