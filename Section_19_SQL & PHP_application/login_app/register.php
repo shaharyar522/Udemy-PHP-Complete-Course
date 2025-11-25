@@ -20,12 +20,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $result = mysqli_query($conn, $sql);
         //check the username is exit ;
         if (mysqli_num_rows($result) === 1) {
-            echo "Username already exit, Please Choose anohter";
+            $error = "Username already exit, Please Choose anohter";
         } else {
             //insert data
             $sql = "INSERT INTO users (username, email, password) VALUES ('$name', '$user_email', '$password_hastag')";
-            if (mysqli_query($conn, $sql)) {
-                echo "Data insert";
+            if (mysqli_query($conn, $sql)){
+                $_SESSION['log_in'] = true;
+                $_SESSION['username'] = $user['username'];
+                header("Location: admin.php");
+                exit();
             } else {
                 echo "Something happing data no inserting, error: " . mysqli_errno($conn);
             }
@@ -39,19 +42,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <div class="container">
 
-    <?php if ($error): ?>
-        <p style="color:red">
-            <?php echo $error; ?>
-        </p>
-    <?php endif; ?>
-<h2>Register</h2>
+
+
     <div class="form-container">
         <form action="" method="POST">
-            <label for="username">Username:</label>
-            <input type="text" id="username" name="username" placeholder="Enter Your Username">
+            <h2>Create Your Account</h2>
+            <!-- when rong enery show this errors -->
+            <?php if ($error): ?>
+                <p style="color:red">
+                    <?php echo $error; ?>
+                </p>
+            <?php endif; ?>
 
-            <label for="email">Email:</label><br>
-            <input type="email" id="email" name="email" placeholder="Enter Your Email">
+            
+            <label for="username">Username:</label>
+            <input type="text"  value="<?php echo isset($name) ? $name : '';?>" id="username" name="username" placeholder="Enter Your Username">
+
+            <label for="email">Email:</label>
+            <input type="email" value="<?php echo isset($user_email)? $user_email : ''; ?>" id="email" name="email" placeholder="Enter Your Email">
 
             <label for="password">Password:</label>
             <input type="password" id="password" name="password" placeholder="Enter Your password">

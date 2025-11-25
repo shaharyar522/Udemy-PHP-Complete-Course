@@ -1,6 +1,7 @@
 body {
     margin: 0;
-    padding-top: 50px;
+    /* padding-top: 50px; */
+    margin-top: 50px;
 }
 
 /* uay body.index hum ny function k throw class add ki hain hain or wo base hn gi mtlab
@@ -15,9 +16,9 @@ body.login {
     background-color: #6399abd9;
 }
 
-/******** Start  REGISTRATION PAGE ********/
-
+/******** Start  REGISTRATION Registraion , Login  PAGE ********/
 /* mtlb k register ko or login ko dono ko center kya hian hain nice staff */
+
 body.register {
     background-color: #fff3e0;
 }
@@ -30,6 +31,18 @@ body.login .form-container {
     height: 100vh;
     padding: 20px;
 }
+
+
+/* in form h2 styling */
+body.register .form-container h2,
+body.login .form-container h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #333;
+
+}
+
 
 /* nice staff amazing */
 body.register form,
@@ -44,7 +57,9 @@ body.login form {
 
 body.register form input[type='text'],
 body.register form input[type='email'],
-body.register form input[type='password'] {
+body.register form input[type='password'],
+body.login form input[type='text'],
+body.login form input[type='password'] {
     width: 100%;
     padding: 10px;
     margin-bottom: 20px;
@@ -52,12 +67,103 @@ body.register form input[type='password'] {
     border-radius: 5px;
     box-sizing: border-box;
     font-size: 16px;
+}
 
+body.register form input[type='submit'],
+body.login form input[type='submit'] {
 
+    width: 100%;
+    padding: 14px;
+    background-color: #333;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+body.register form input[type='submit']:hover,
+body.login form input[type='submit']:hover {
+    background-color: #ff6b6b;
+}
+
+body.register form label,
+body.login form label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 14px;
+    color: #555;
 }
 
 /******* END REGISTRATION PAGE ********/
 
+
+/************ hero section styling index ************/
+
+body.index,
+.hero {
+    background-image: url('../images/hero-image.png');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+/* later for to use  with  bg image */
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: -1;
+}
+
+body.index .hero .hero-contenet {
+    max-width: 600px;
+    padding: 20px;
+}
+
+body.index .hero p {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+}
+
+body.index .hero h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+body.index .hero .hero-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+
+body.index .hero .hero-buttons .btn {
+    padding: 12px 30px;
+    color: white;
+    text-decoration: none;
+    font-size: 1.5rem;
+    border-radius: 5px;
+    background-color: #ff6b6b;
+}
+
+body.index .hero .hero-buttons .btn:hover {
+    background-color: #ff4b4b;
+}
+
+/*********** end hero section  ************/
 nav {
     background-color: #333;
     position: fixed;

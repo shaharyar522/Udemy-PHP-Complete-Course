@@ -4,7 +4,7 @@
 
         <?php if (isset($_SESSION["log_in"]) && $_SESSION["log_in"] === true): ?>
             <!-- Show this if user is logged in -->
-            <li><a  class="<?php echo setActiveClass('admin.php'); ?>" href="admin.php">Admin</a></li>
+            <li><a class="<?php echo setActiveClass('admin.php'); ?>" href="admin.php">Admin</a></li>
             <li><a href="logout.php" class="<?php echo setActiveClass('logout.php'); ?>">Logout</a></li>
         <?php else: ?>
             <!-- Show this if user is NOT logged in -->

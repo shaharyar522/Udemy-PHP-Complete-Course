@@ -30,10 +30,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             header("Location: admin.php");
             exit();
         } else {
-            echo "Invaild password ";
+            $error = "Invalid password!";
         }
     } else {
-        echo "user not found ";
+        $error = "User not found!";
     }
 }
 //mysqli_query : sever ko sql query send karnay ki ek query hain .
@@ -42,18 +42,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <div class="container">
 
-    <?php if ($error): ?>
-        <p style="color:red">
-            <?php echo $error; ?>
-        </p>
-    <?php endif; ?>
-    
+
+
     <div class="form-container">
+
         <form action="" method="POST">
-            <label for="username">Username:</label><br>
-            <input type="text" id="username" name="username"><br><br>
-            <label for="password">Password:</label><br>
-            <input type="password" id="password" name="password"><br><br>
+            <h2>Login</h2>
+
+            <?php if ($error): ?>
+                <p style="color:red">
+                    <?php echo $error; ?>
+                </p>
+            <?php endif; ?>
+
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username">
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password">
             <input type="submit" value="Login">
         </form>
     </div>
