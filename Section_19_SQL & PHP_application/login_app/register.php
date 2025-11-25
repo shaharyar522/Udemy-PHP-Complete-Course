@@ -47,17 +47,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <h2>Register</h2>
     <div class="form-container">
         <form action="" method="POST">
-            <label for="username">Username:</label><br>
-            <input type="text" id="username" name="username"><br><br>
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" placeholder="Enter Your Username">
 
             <label for="email">Email:</label><br>
-            <input type="email" id="email" name="email"><br><br>
+            <input type="email" id="email" name="email" placeholder="Enter Your Email">
 
-            <label for="password">Password:</label><br>
-            <input type="password" id="password" name="password"><br><br>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" placeholder="Enter Your password">
 
-            <label for="confirm_password">Confirm Password:</label><br>
-            <input type="password" id="confirm_password" name="confirm_password" required><br><br>
+            <label for="confirm_password">Confirm Password:</label>
+            <input type="password" id="confirm_password" name="confirm_password" placeholder="Enter Your Confirm Password" required>
 
             <input type="submit" value="Register">
         </form>

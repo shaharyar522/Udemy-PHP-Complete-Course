@@ -1,71 +1,100 @@
 body {
-        margin: 0;
-        padding-top: 50px;
-    }
+    margin: 0;
+    padding-top: 50px;
+}
 
-    /* uay body.index hum ny function k throw class add ki hain hain or wo base hn gi mtlab
+/* uay body.index hum ny function k throw class add ki hain hain or wo base hn gi mtlab
     k index , register , login */
-   body.index {
+body.index {
     background-color: #f4f4f4;
 }
 
-body.register {
-    background-color: #fff3e0;
-}
+
 
 body.login {
     background-color: #6399abd9;
 }
 
+/******** Start  REGISTRATION PAGE ********/
+
 /* mtlb k register ko or login ko dono ko center kya hian hain nice staff */
-body.register, body.login .form-container{
+body.register {
+    background-color: #fff3e0;
+}
+
+body.register,
+body.login .form-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 60vh;
+    height: 100vh;
+    padding: 20px;
 }
-    /* nice staff amazing */
-body.register form ,body.login form{
+
+/* nice staff amazing */
+body.register form,
+body.login form {
     background-color: #fff;
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+
+    max-width: 400px;
 }
 
+body.register form input[type='text'],
+body.register form input[type='email'],
+body.register form input[type='password'] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 16px;
 
-    nav {
-        background-color: #333;
-        position: fixed;
-        width: 100%;
-        top: 0;
-        z-index: 1000;
-        display: flex;
-        justify-content: center;
 
-    }
-    nav ul {
-        display: flex;
-        list-style-type: none;
-        margin: 0;
-        padding: 0;
-    }
-    nav ul li {
-         margin: 0 10px;
-    }
-    nav ul li a{
-        display: block;
-        padding: 14px 20px;
-        color: white;
-        text-decoration: none;
-        font-size: 16px;
-        font-family: Arial, sans-serif;
-    }
-    nav ul li a:hover {
-        background-color: #575757;
-        color: white;
-    }
+}
 
-    nav ul li a.active {
-        background-color: #575757;
-        color: yellow;
-    }
+/******* END REGISTRATION PAGE ********/
+
+nav {
+    background-color: #333;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+
+}
+
+nav ul {
+    display: flex;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    margin: 0 10px;
+}
+
+nav ul li a {
+    display: block;
+    padding: 14px 20px;
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    font-family: Arial, sans-serif;
+}
+
+nav ul li a:hover {
+    background-color: #575757;
+    color: white;
+}
+
+nav ul li a.active {
+    background-color: #575757;
+    color: yellow;
+}

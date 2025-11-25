@@ -42,12 +42,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <div class="container">
 
-
     <?php if ($error): ?>
         <p style="color:red">
             <?php echo $error; ?>
         </p>
     <?php endif; ?>
+    
     <div class="form-container">
         <form action="" method="POST">
             <label for="username">Username:</label><br>
@@ -57,6 +57,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <input type="submit" value="Login">
         </form>
     </div>
+
 </div>
 
 <?php
