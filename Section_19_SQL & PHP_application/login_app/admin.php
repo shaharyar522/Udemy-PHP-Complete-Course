@@ -15,29 +15,36 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     //edit
     if (isset($_POST['edit_user'])) {
         $user_id = mysqli_real_escape_string($conn, $_POST['user_id']);
-          $new_username = mysqli_real_escape_string($conn, $_POST['username']);
+        $new_username = mysqli_real_escape_string($conn, $_POST['username']);
         $new_email = mysqli_real_escape_string($conn, $_POST['email']);
-      
+
 
 
         $sql = "UPDATE users SET username = '$new_username', email = '$new_email' WHERE id = '$user_id'";
+
         $result = mysqli_query($conn, $sql);
         // check_query hum db.php ki file main bnay hnva hian ?
-        if (check_query($conn, $result)) {
+        $check_status = check_query($result, $conn);
+        if ($check_status === true) {
+            $_SESSION['message'] = "User update Successfully";
+            $_SESSION['msg_type'] = "success";
             header("Location: admin.php");
             exit();
         }
     }
 
     //delete
-    if(isset($_POST['delete_user']))
+    if (isset($_POST['delete_user']))
         $user_id = mysqli_real_escape_string($conn, $_POST['user_id']);
-        $sql = "DELETE FROM users WHERE id = '$user_id' ";
-        $result = mysqli_query($conn, $sql);
-        if (check_query($conn, $result)) {
-            header("Location: admin.php");
-            exit();
-        }
+    $sql = "DELETE FROM users WHERE id = '$user_id' ";
+    $result = mysqli_query($conn, $sql);
+    $check_status = check_query($result,$conn);
+    if ($check_status === true) {
+        $_SESSION['message'] = "User Deleted  Successfully";
+        $_SESSION['msg_type'] = "success";
+        header("Location: admin.php");
+        exit();
+    }
 }
 ?>
 
@@ -48,6 +55,19 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 <h1>Manage Users</h1>
 
 <div class="container">
+
+
+    <?php if (isset($_SESSION['message'])):  ?>
+        <div class="notification <?php echo $_SESSION['msg_type']; ?>">
+            <?php
+            echo $_SESSION["message"];
+            unset($_SESSION['message']);
+            unset($_SESSION["msg_type"]);
+            ?>
+        </div>
+
+    <?php endif; ?>
+
     <table class="user-table">
         <thead>
             <tr>
@@ -72,7 +92,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                     <td>
                         <form method="POST" style="display:inline-block;">
                             <input type="hidden" name="user_id" value="<?php echo $user['id']; ?>">
-                              <input type="text" name="username" value="<?php echo $user['username']; ?>" required>
+                            <input type="text" name="username" value="<?php echo $user['username']; ?>" required>
                             <input type="email" name="email" value="<?php echo $user['email']; ?>" required>
                             <button class="edit" type="submit" name="edit_user">Edit</button>
                         </form>
