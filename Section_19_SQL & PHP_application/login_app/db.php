@@ -6,3 +6,10 @@ if ($conn) {
 } else {
     echo "not connected " . mysqli_error($con);
 }
+
+function check_query($conn, $result){
+  if(!$result){
+     return "Error" . mysqli_errno($conn);
+  }
+  return true;
+}

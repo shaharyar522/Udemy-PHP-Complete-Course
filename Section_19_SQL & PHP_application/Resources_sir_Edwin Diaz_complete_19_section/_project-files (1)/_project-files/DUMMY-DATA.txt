@@ -1,0 +1,11 @@
+INSERT INTO `users` (`username`, `password`, `email`) VALUES
+('alice', '$2y$10$e1NRgRULJQdZzY0xQXlYpOc.c9GBzvIYx5pI6zr9Q75ZK0Zc4kZaa', 'alice@example.com'),
+('bob', '$2y$10$QzPvG6Vd1kM7pDVwUYPF7OHg8vE0cSNZ7tHxQJNWbNV9dY6EjgDGu', 'bob@example.com'),
+('charlie', '$2y$10$9NQ3n9lV3e5RVZlNq9N2bOb6X3wFyqE8xXQqYJ6Rz8VxG4D6G6xjS', 'charlie@example.com'),
+('david', '$2y$10$V9sYJf1l4H6eZJrU8kWwPujqW8vV0YbI3eGZkJ8qH9sHf4J3m5nLq', 'david@example.com'),
+('eve', '$2y$10$D4N5sQf8J6bZfL0aK3mPjOt1kYxN6bQ8fRzWgH5hL7cJpI2r9dS9e', 'eve@example.com'),
+('frank', '$2y$10$H8K7lS0mN1pWfT3cB4vXqYn2aVbC6dF5gJ9hL2sM4oPqR7tV1uZ0x', 'frank@example.com'),
+('grace', '$2y$10$L5P2cV9nB6sYhW4eF3uZxKq0tD7mE8iJ1nO2pQ5rS6tV8wX9aB0cD', 'grace@example.com'),
+('heidi', '$2y$10$F3gH6lJ9kL0pQ1sT2vWbXyZ3uC4dE5fG6hI7jK8lM9nO0pQ1rS2tV', 'heidi@example.com'),
+('ivan', '$2y$10$Y6bV9cD5fG7hJ8kL9mN0pQ2rS3tU4vW5xY6zZ1aB2cD3eF4gH5iJ6', 'ivan@example.com'),
+('judy', '$2y$10$O4nP5qR6sT7uV8wX9yZ0aB1cD2eF3gH4hI5jK6lL7mN8oP9qR0sT1', 'judy@example.com');

@@ -10,8 +10,8 @@ include "functions.php";
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login App with SQL and PHP</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/admin.css">
 </head>
 
 <body class="<?php echo getPageClass(); ?>">
-
 </body>

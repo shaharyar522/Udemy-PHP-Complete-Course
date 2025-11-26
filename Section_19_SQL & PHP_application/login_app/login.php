@@ -4,9 +4,14 @@ include('partials/header.php');
 include('partials/navigation.php');
 
 
+// isset($_SESSION["log_in"]) && $_SESSION["log_in"] === true es ko main ek function main add kya hnva hian is_user_logged_in()
+// jo k functions.php ki file main hain 
+
+/// i have to add cuturm fuction in function.php is_user_logged_in() and redirect()  
 session_start();
-if (isset($_SESSION["log_in"]) && $_SESSION["log_in"] === true) {
-    header("Location: admin.php");
+if (is_user_logged_in()) {
+    // now redriect uay bhi function hain 
+    redirect('admin.php');
 }
 
 $error = "";
@@ -19,6 +24,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     //select data
     $sql = "SELECT * FROM users WHERE username = '$name' LIMIT 1";
     $result = mysqli_query($conn, $sql);
+    //  if (mysqli_num_rows($result) === 1)     
+
+    //Note 
+    //**  uay opar wala maray pass old code hian now es ko main ek function main add kar dia hain hian or us function es main  **//
+
 
     if (mysqli_num_rows($result) === 1) {
 

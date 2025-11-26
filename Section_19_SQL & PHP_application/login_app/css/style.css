@@ -1,7 +1,7 @@
 body {
     margin: 0;
     /* padding-top: 50px; */
-    margin-top: 50px;
+    margin-top: 30px;
 }
 
 /* uay body.index hum ny function k throw class add ki hain hain or wo base hn gi mtlab
@@ -103,7 +103,7 @@ body.login form label {
 
 body.index,
 .hero {
-    background-image: url('../images/hero-image.png');
+    background-image: url('../image/hero-image.png');
     background-size: cover;
     background-position: center;
     height: 100vh;
