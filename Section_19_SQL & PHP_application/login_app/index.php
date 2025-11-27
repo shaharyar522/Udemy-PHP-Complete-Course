@@ -10,12 +10,15 @@ include('partials/navigation.php');
             <h1>Wellcome to Our PHP login App</h1>
             <p>Securey Login and mange your Acount with us</p>
             <div class="hero-buttons">
-          
-                <?php if(is_user_logged_in()):?>
-                <a class="btn" href="login.php">Login</a>
-                <a class="btn" href="register.php">Register</a>
+                <!-- now is_user_logged_in() uay hamray pass ek session jo k main ny function m add kya hnva hain -->
 
-                  <?php endif; ?>
+                <?php if (is_user_logged_in()): ?>
+
+                    <a class="btn" href="login.php">Login</a>
+                    <a class="btn" href="register.php">Register</a>
+
+                <?php endif; ?>
+
             </div>
 
         </div>

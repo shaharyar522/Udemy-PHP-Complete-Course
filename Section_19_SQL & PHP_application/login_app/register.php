@@ -5,6 +5,7 @@ include('partials/navigation.php');
 $error = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
     $name =  htmlspecialchars(trim($_POST["username"]));
     $user_email = isset($_POST["email"]) ? htmlspecialchars(trim($_POST["email"])) : "";
     $password =  htmlspecialchars(trim($_POST["password"]));
@@ -14,8 +15,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $error =  "Password does not match";
     } else {
         $password_hastag = password_hash($password, PASSWORD_DEFAULT);
-
-        //select data
+        //  select data
         $sql = "SELECT * FROM users WHERE username = '$name' LIMIT 1";
         $result = mysqli_query($conn, $sql);
         //check the username is exit ;
@@ -56,6 +56,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             
             <label for="username">Username:</label>
+            <!--php echo isset($name) ? $name : '';  value mainhum agr mtalb agr dosray input main errors ayen tu uay baki remain rahin   -->
             <input type="text"  value="<?php echo isset($name) ? $name : '';?>" id="username" name="username" placeholder="Enter Your Username">
 
             <label for="email">Email:</label>
