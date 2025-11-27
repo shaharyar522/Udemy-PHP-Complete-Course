@@ -1,0 +1,29 @@
+INSERT INTO users (username, email) VALUES
+('user1', 'user1@example.com'),
+('user2', 'user2@example.com'),
+('user3', 'user3@example.com'),
+('user4', 'user4@example.com'),
+('user5', 'user5@example.com'),
+('user6', 'user6@example.com'),
+('user7', 'user7@example.com'),
+('user8', 'user8@example.com'),
+('user9', 'user9@example.com'),
+('user10', 'user10@example.com'),
+('user11', 'user11@example.com'),
+('user12', 'user12@example.com');
+
+
+////////
+
+
+INSERT INTO orders (user_id, Product) VALUES
+(1, 'Laptop'),
+(2, 'Mobile Phone'),
+(3, 'Headphones'),
+(4, 'Keyboard'),
+(5, 'Mouse'),
+(6, 'Smart Watch'),
+(7, 'USB Flash Drive'),
+(8, 'Bluetooth Speaker'),
+(9, 'Tablet'),
+(10, 'Printer');

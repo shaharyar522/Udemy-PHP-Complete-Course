@@ -1,0 +1,62 @@
+📌 Assume Table: users
+Column	Type
+id (PK)	INT AUTO_INCREMENT
+name	VARCHAR(50)
+email	VARCHAR(50)
+
+simple CRUD (Create, Read, Update, Delete)
+
+✅ C = CREATE (Insert Record)
+
+INSERT INTO users (name, email)
+VALUES ('Ali', 'ali@gmail.com');
+
+
+📍 R = READ (Select Record)
+
+-- All records:
+SELECT * FROM users;
+
+-- Specific record by id:
+SELECT * FROM users WHERE id = 1;
+
+-- Specific columns only:
+SELECT name, email FROM users;
+
+
+✏️ U = UPDATE (Edit/Modify Record)
+
+-- Update user where id = 1:
+UPDATE users
+SET name = 'Ali Khan', email = 'alikhan@gmail.com'
+WHERE id = 1;
+
+
+❌ D = DELETE (Remove Record)
+
+-- Delete one record:
+
+DELETE FROM users
+WHERE id = 1;
+
+-- Delete all records (use carefully):
+
+DELETE FROM users;
+
+
+
+
+📍 Most Common Used CRUD Queries (1–2 line each)
+Operation	Query
+Add user	INSERT INTO users (name, email) VALUES ('Sara','sara@gmail.com');
+Show all users	SELECT * FROM users;
+Update email	UPDATE users SET email='new@gmail.com' WHERE id=2;
+Delete user	DELETE FROM users WHERE id=2;
+
+
+
+
+
+
+
+
