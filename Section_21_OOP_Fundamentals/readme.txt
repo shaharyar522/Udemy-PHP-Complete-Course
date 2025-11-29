@@ -1,0 +1,1 @@
+phpinfo();  // complete serve ki information lainy k leuy
