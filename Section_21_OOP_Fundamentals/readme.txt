@@ -39,3 +39,51 @@ $myCar = new Car();
 ⭐ Object ko hum kahan use karte hain?
 🎯 1. Class ka data use karne ke liye
 echo $myCar->color;  
+
+
+Q# property : just a simple variable like this..
+
+
+Extera note:    public $color = "Red";
+
+
+
+
+
+
+public, Protected, Private 
+
+public => less secure (hnta hian mtlb kam )
+Protected => (uay zayda secure hnta hin)
+
+Private => more extera secrue hnta hin
+
+
+
+
+class k andar properties kya hnti hian and  method
+
+properties :      public $username = "shari";    //uay properties hian 
+
+method :     public function setUsername()    // and now uay maray pass method hian 
+    {
+        echo $this->username;
+    }
+
+
+
+
+
+
+class User
+{
+
+    public $username = "shari";   //uay properties hian 
+    public function setUsername()    // and now uay maray pass method hian 
+    {
+        echo $this->username;
+    }
+}
+
+
+
