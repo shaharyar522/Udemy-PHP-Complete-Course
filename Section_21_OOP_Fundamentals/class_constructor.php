@@ -3,7 +3,7 @@
 // public, Protected, Private      public => less secure (hnta hian mtlb kam ) Protected => (uay zayda secure hnta hin)
 // Private => more extera secrue hnta hin
 
-// "A constructor is a special method in a class that runs automatically when an object is created. It is used to initialize the object’s properties immediately."
+//  "A constructor is a special method in a class that runs automatically when an object is created. It is used to initialize the object’s properties immediately."
 
 //Q kb zaroart hntin hina
 
