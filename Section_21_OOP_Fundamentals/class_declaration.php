@@ -1,5 +1,10 @@
 <?php
 
+//defination : class is a blueprint/templates or funcationaliy that  inside the class multiple 
+// mehtod and porperties ,, 
+
+
+
 class user {}
 
 
