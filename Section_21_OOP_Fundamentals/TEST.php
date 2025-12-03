@@ -1,5 +1,6 @@
 <?php
-
+// note 
+// not importand
 class shari
 {
     public function height()

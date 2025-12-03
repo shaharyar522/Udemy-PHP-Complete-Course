@@ -18,11 +18,12 @@ class User_test
         $this->username = $value;
     }
 
-    public function setUsername()    // and now uay maray pass method hian 
+    public function setUsername()    //and now uay maray pass method hian 
     {
         echo $this->username;
     }
 
+  
 }
 
 $user = new User_test("shari");
