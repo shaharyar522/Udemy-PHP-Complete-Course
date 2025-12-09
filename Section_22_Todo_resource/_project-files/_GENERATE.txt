@@ -1,0 +1,28 @@
+-- Create the database
+CREATE DATABASE IF NOT EXISTS test_todo_app_mysql_db;
+
+-- Use the newly created database
+USE test_todo_app_mysql_db;
+
+-- Create the tasks table with the specified schema
+CREATE TABLE `tasks` (
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `task` VARCHAR(255) NOT NULL,
+  `is_completed` TINYINT(1) NOT NULL DEFAULT 0,
+  `created_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP(),
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- Insert 10 random tasks into the tasks table
+INSERT INTO `tasks` (`task`, `is_completed`)
+VALUES
+  ('Buy groceries', 0),
+  ('Finish project report', 1),
+  ('Call mom', 0),
+  ('Plan weekend trip', 0),
+  ('Read a book', 1),
+  ('Attend yoga class', 0),
+  ('Fix the leaking faucet', 0),
+  ('Prepare presentation slides', 1),
+  ('Organize desk drawer', 0),
+  ('Schedule dentist appointment', 1);

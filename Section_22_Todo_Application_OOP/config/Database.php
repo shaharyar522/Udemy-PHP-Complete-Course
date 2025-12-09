@@ -15,6 +15,7 @@ class Database
     public function connect()
     {
         $this->conn = null;
+        
         try {
             $this->conn = new mysqli(
                 $this->db_host,
