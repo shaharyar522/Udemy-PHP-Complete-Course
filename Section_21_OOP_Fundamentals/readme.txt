@@ -31,6 +31,7 @@ Instance of class = class ka real piece / real copy / real cheez
 
 class Car {
     public $color = "Red";
+    
 }
 $myCar = new Car();
 ✔️ $myCar = object

@@ -77,13 +77,16 @@ class User_acess
 
     public function displayPassword()
     {
+
         return $this->password;
+        
     }
+
 }
 
 
 
-class  AdminUser_access extends User_acess{
+class  AdminUser_access extends User_acess {
             
     public function getEmailAgain(){
         return  $this->email . "FROM ADMIN CLASS";
