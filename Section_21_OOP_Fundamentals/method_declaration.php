@@ -1,7 +1,7 @@
 <?php  
 ///  ❓ What is a method?
 // Answer:
-// “A method is simply a function that is defined inside a class. 
+// “A method is a simple  function that is defined inside a class. 
 
 
 //note: 
