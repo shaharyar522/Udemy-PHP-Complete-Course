@@ -1,6 +1,4 @@
 <?php
-
-
 class Task
 {
     private $conn;
@@ -50,6 +48,14 @@ class Task
     }
 
     public function Delete($id)
+    {
+        $query = "DELETE FROM " . $this->table . " WHERE id = ?";
+        $stmt = $this->conn->prepare($query);
+        $stmt->bind_param("i", $id);
+        return $stmt->execute();
+    }
+
+    public function undoComplete_update($id)
     {
         $query = "DELETE FROM " . $this->table . " WHERE id = ?";
         $stmt = $this->conn->prepare($query);
