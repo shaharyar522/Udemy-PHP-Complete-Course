@@ -1,0 +1,62 @@
+-- Create database if it doesn't exist
+CREATE DATABASE IF NOT EXISTS `cms_pdo`;
+
+-- Use the cms_pdo database
+USE `cms_pdo`;
+
+-- Create users table
+CREATE TABLE `users` (
+    `id` INT(11) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    `username` VARCHAR(255) NOT NULL,
+    `password` VARCHAR(255) NOT NULL,
+    `first_name` VARCHAR(255) DEFAULT NULL,
+    `last_name` VARCHAR(255) DEFAULT NULL,
+    `email` VARCHAR(255) NOT NULL,
+    `phone` VARCHAR(20) DEFAULT NULL,
+    `birthday` DATE DEFAULT NULL,
+    `organization` VARCHAR(255) DEFAULT NULL,
+    `location` VARCHAR(255) DEFAULT NULL,
+    `profile_image` VARCHAR(255) DEFAULT NULL,
+    `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    `updated_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
+-- Create articles table
+CREATE TABLE `articles` (
+    `id` INT(11) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    `title` VARCHAR(255) NOT NULL,
+    `content` TEXT NOT NULL,
+    `user_id` INT(11) UNSIGNED NOT NULL,
+    `image` VARCHAR(255) DEFAULT NULL,
+    `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    `updated_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    FOREIGN KEY (`user_id`) REFERENCES `users`(`id`) ON DELETE CASCADE
+);
+
+-- Insert 10 dummy users into users table
+INSERT INTO `users` (`username`, `password`, `email`, `first_name`, `last_name`, `phone`, `birthday`, `organization`, `location`, `profile_image`)
+VALUES
+('user1', 'password1', 'user1@example.com', 'John', 'Doe', '555-0101', '1990-01-01', 'Company A', 'New York', 'profile1.jpg'),
+('user2', 'password2', 'user2@example.com', 'Jane', 'Smith', '555-0102', '1991-02-02', 'Company B', 'Los Angeles', 'profile2.jpg'),
+('user3', 'password3', 'user3@example.com', 'Alice', 'Johnson', '555-0103', '1992-03-03', 'Company C', 'Chicago', 'profile3.jpg'),
+('user4', 'password4', 'user4@example.com', 'Bob', 'Brown', '555-0104', '1993-04-04', 'Company D', 'Houston', 'profile4.jpg'),
+('user5', 'password5', 'user5@example.com', 'Carol', 'Davis', '555-0105', '1994-05-05', 'Company E', 'Phoenix', 'profile5.jpg'),
+('user6', 'password6', 'user6@example.com', 'David', 'Miller', '555-0106', '1995-06-06', 'Company F', 'Philadelphia', 'profile6.jpg'),
+('user7', 'password7', 'user7@example.com', 'Eve', 'Wilson', '555-0107', '1996-07-07', 'Company G', 'San Antonio', 'profile7.jpg'),
+('user8', 'password8', 'user8@example.com', 'Frank', 'Taylor', '555-0108', '1997-08-08', 'Company H', 'San Diego', 'profile8.jpg'),
+('user9', 'password9', 'user9@example.com', 'Grace', 'Anderson', '555-0109', '1998-09-09', 'Company I', 'Dallas', 'profile9.jpg'),
+('user10', 'password10', 'user10@example.com', 'Hank', 'Thomas', '555-0110', '1999-10-10', 'Company J', 'San Jose', 'profile10.jpg');
+
+-- Insert 10 dummy articles into articles table
+INSERT INTO `articles` (`title`, `content`, `user_id`, `image`)
+VALUES
+('Article Title 1', 'Content of article 1.', 1, 'article_image1.jpg'),
+('Article Title 2', 'Content of article 2.', 2, 'article_image2.jpg'),
+('Article Title 3', 'Content of article 3.', 3, 'article_image3.jpg'),
+('Article Title 4', 'Content of article 4.', 4, 'article_image4.jpg'),
+('Article Title 5', 'Content of article 5.', 5, 'article_image5.jpg'),
+('Article Title 6', 'Content of article 6.', 6, 'article_image6.jpg'),
+('Article Title 7', 'Content of article 7.', 7, 'article_image7.jpg'),
+('Article Title 8', 'Content of article 8.', 8, 'article_image8.jpg'),
+('Article Title 9', 'Content of article 9.', 9, 'article_image9.jpg'),
+('Article Title 10', 'Content of article 10.', 10, 'article_image10.jpg');
