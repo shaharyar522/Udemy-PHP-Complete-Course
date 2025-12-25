@@ -1,11 +1,10 @@
 <?php
+
 include("partials/header.php");
 include("partials/navbar.php");
 include("partials/hero.php");
+
 ?>
-
-
-  
     <!-- Main Content  about -->
     <main class="container my-5">
         <h2>Our Story</h2>
@@ -37,8 +36,7 @@ include("partials/hero.php");
                 <img
                     src="https://via.placeholder.com/150"
                     class="rounded-circle mb-3"
-                    alt="Team Member"
-                >
+                    alt="Team Member">
                 <h5>Jose Diaz</h5>
                 <p class="text-muted">Content Writer</p>
             </div>

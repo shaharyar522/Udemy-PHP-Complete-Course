@@ -1,74 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Admin Dashboard - CMS PDO System</title>
-    <!-- Bootstrap CSS -->
-    <link
-        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
-        rel="stylesheet"
+<?php
+include('partials/admin/header.php');
+include('partials/admin/navbar.php');
+?>
 
-    >
 
-    <style>
-            /* Make sure the html and body take up the full height */
-    html, body {
-        height: 100%;
-        margin: 0;
-    }
-
-    body {
-        display: flex;
-        flex-direction: column;
-    }
-
-    /* Main content will expand to fill the available space */
-    main {
-        flex: 1;
-    }
-
-    </style>
-</head>
-<body>
-    <!-- Navigation Bar -->
-
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="index.html">CMS PDO System - Admin</a>
-            <button
-                class="navbar-toggler"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#navbarNav"
-                aria-controls="navbarNav"
-                aria-expanded="false"
-                aria-label="Toggle navigation"
-            >
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div
-                class="collapse navbar-collapse"
-                id="navbarNav"
-            >
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="admin.html">Dashboard</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="create-article.html">Create Article</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.html">View Site</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="login.html">Logout</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Main Content -->
+<!-- Main Content -->
 <div class="container-xl px-4 mt-4">
     <!-- Account page navigation-->
     <nav class="nav nav-borders">
@@ -155,31 +91,6 @@
 </div>
 
 
-
-    <!-- Footer -->
-    <footer class="bg-dark text-white py-3 mt-auto">
-        <div class="container text-center">
-            <p class="mb-0">&copy; 2045 CMS PDO System. All rights reserved by Edwin Diaz from EdwinDiaz.com</p>
-        </div>
-    </footer>
-
-    <!-- Bootstrap JS -->
-    <script
-        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
-
-    ></script>
-
-    <!-- Custom JS -->
-    <script>
-        function confirmDelete(articleId) {
-            if (confirm('Are you sure you want to delete this article?')) {
-                // Implement deletion logic here
-                // For example, make an AJAX request to delete the article
-                alert('Article ' + articleId + ' deleted.');
-            }
-        }
-    </script>
-
-
-</body>
-</html>
+<?php
+include('partials/admin/footer.php');
+?>
