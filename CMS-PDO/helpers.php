@@ -1,6 +1,4 @@
-<?php  
-
-
+<?php
 function base_url($path = ""){
     $protocol = isset($_SERVER['HTTPS']) && isset($_SERVER['HTTPS'])  !== "off" ? 'https://' : 'https';
     $host = $_SERVER['HTTP_HOST'];

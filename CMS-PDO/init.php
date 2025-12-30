@@ -3,6 +3,10 @@
 //Session start
 session_start();
 
+//Include the configration fiel
+
+require_once('config/config.php');
+
 // Include helpers function 
 require_once('helpers.php');
 

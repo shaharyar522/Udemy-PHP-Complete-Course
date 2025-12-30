@@ -5,60 +5,54 @@ include('partials/admin/navbar.php');
 
 
   <!-- Main Content -->
-    <main class="container my-5">
-        <!-- Blog Post 1 -->
-        <div class="row mb-4">
-            <div class="col-md-4">
-                <img
-                    src="https://via.placeholder.com/350x200"
-                    class="img-fluid"
-                    alt="Blog Post Image"
-                >
-            </div>
-            <div class="col-md-8">
-                <h2>Blog Post Title 1</h2>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nisl eros, 
-                    pulvinar facilisis justo mollis, auctor consequat urna.
-                </p>
-                <a href="article.html" class="btn btn-primary">Read More</a>
-            </div>
-        </div>
-        <!-- Blog Post 2 -->
-        <div class="row mb-4">
-            <div class="col-md-4">
-                <img
-                    src="https://via.placeholder.com/350x200"
-                    class="img-fluid"
-                    alt="Blog Post Image"
-                >
-            </div>
-            <div class="col-md-8">
-                <h2>Blog Post Title 2</h2>
-                <p>
-                    Morbi in sem quis dui placerat ornare. Pellentesque odio nisi, euismod in, 
-                    pharetra a, ultricies in, diam. Sed arcu.
-                </p>
-                <a href="#" class="btn btn-primary">Read More</a>
-            </div>
-        </div>
-        <!-- Blog Post 3 -->
-        <div class="row mb-4">
-            <div class="col-md-4">
-                <img
-                    src="https://via.placeholder.com/350x200"
-                    class="img-fluid"
-                    alt="Blog Post Image"
-                >
-            </div>
-            <div class="col-md-8">
-                <h2>Blog Post Title 3</h2>
-                <p>
-                    Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu 
-                    vulputate magna eros eu erat.
-                </p>
-                <a href="#" class="btn btn-primary">Read More</a>
-            </div>
+  <main class="container my-5">
+        <h2 class="mb-4">Admin Dashboard</h2>
+
+        <!-- Articles Table -->
+        <div class="table-responsive">
+            <table class="table table-bordered table-hover align-middle">
+                <thead class="table-dark">
+                    <tr>
+                        <th>ID</th>
+                        <th>Title</th>
+                        <th>Author</th>
+                        <th>Published Date</th>
+                        <th>Excerpt</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Example Article Row -->
+                    <tr>
+                        <td>1</td>
+                        <td>Article Title 1</td>
+                        <td>Edwin Diaz</td>
+                        <td>January 1, 2045</td>
+                        <td>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus feugiat elit vitae enim lacinia semper...
+                        </td>
+                        <td>
+                            <a href="edit-article.html?id=1" class="btn btn-sm btn-primary me-1">Edit</a>
+                            <button class="btn btn-sm btn-danger" onclick="confirmDelete(1)">Delete</button>
+                        </td>
+                    </tr>
+                    <!-- Additional Article Rows -->
+                    <tr>
+                        <td>2</td>
+                        <td>Article Title 2</td>
+                        <td>Jose Diaz</td>
+                        <td>February 15, 2045</td>
+                        <td>
+                            Quisque fermentum, nisl a pulvinar tincidunt, nunc purus laoreet massa, nec tempor arcu urna vel nisi...
+                        </td>
+                        <td>
+                            <a href="edit-article.html?id=2" class="btn btn-sm btn-primary me-1">Edit</a>
+                            <button class="btn btn-sm btn-danger" onclick="confirmDelete(2)">Delete</button>
+                        </td>
+                    </tr>
+                    <!-- You can add more articles here -->
+                </tbody>
+            </table>
         </div>
     </main>
 

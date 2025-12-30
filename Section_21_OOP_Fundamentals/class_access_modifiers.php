@@ -79,12 +79,10 @@ class User_acess
     {
 
         return $this->password;
-        
+
     }
 
 }
-
-
 
 class  AdminUser_access extends User_acess {
             
