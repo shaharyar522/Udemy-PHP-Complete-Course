@@ -1,6 +1,5 @@
 <?php 
 require_once __DIR__ . "/../../init.php";
-echo base_url();
 ?>
 
 <!DOCTYPE html>

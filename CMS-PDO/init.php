@@ -1,17 +1,27 @@
 <?php
 
-//Session start
+// Autoload classes
+require_once "autoloader.php";
+
+
+
+// Start Session
 session_start();
 
-//Include the configration fiel
+// Include the main configuration file
+require_once "config/config.php";
 
-require_once('config/config.php');
-
-// Include helpers function 
-require_once('helpers.php');
-
+//
+//// Load database
+//require_once "classes/Database.php";
 
 
-// Define Global constant
-define("APP NAME", "CMS PDO SYSTEM");
+// Include helper functions jo hum gloalbal function used kr saktian hian
+require_once "helpers.php";
+
+
+// Define global constants
+define("APP_NAME", "CMS PDO System");
+define("PROJECT_DIR", "udemy/cms-pdo");
 ?>
+

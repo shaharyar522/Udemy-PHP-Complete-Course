@@ -2,6 +2,12 @@
 include("partials/header.php");
 include("partials/navbar.php");
 include("partials/hero.php");
+
+// $db = new Database();
+// $db->getConnection();
+//$user = new User();
+// var_dump(get_declared_classes());
+
 ?>
 
 <main class="container my-5">
