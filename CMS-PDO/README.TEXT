@@ -1,0 +1,16 @@
+Read More Click
+      ↓
+article.php?id=5
+      ↓
+$_GET['id']
+      ↓
+getArticleById(5)
+      ↓
+Database Query
+      ↓
+Article Object
+      ↓
+Show Article
+
+
+---------------------------------
