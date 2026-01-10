@@ -1,39 +1,62 @@
 <?php
-function base_url($path = ""){
+function base_url($path = "")
+{
     $protocol = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== "off") ? 'https://' : 'http://';
     $host = $_SERVER['HTTP_HOST'];
     $baseUrl = $protocol . $host . '/' . PROJECT_DIR;
-    return $baseUrl. '/' . ltrim($path, '/');
+    return $baseUrl . '/' . ltrim($path, '/');
 }
 
 
-function base_path($path = "") {
+function base_path($path = "")
+{
     $rootPath = dirname(__DIR__) . DIRECTORY_SEPARATOR . PROJECT_DIR;
     return $rootPath . DIRECTORY_SEPARATOR . ltrim($path, DIRECTORY_SEPARATOR);
 }
 
-function uploads_url($filename = '') {
+function uploads_url($filename = '')
+{
     return base_path('uploads/' . DIRECTORY_SEPARATOR . $filename);
 }
 
 
-function assets_url($path) {
-    return base_path('assets/').ltrim($path, '/');
+function assets_url($path)
+{
+    return base_path('assets/') . ltrim($path, '/');
 }
 
-function redirect($url){
+function redirect($url)
+{
     header('Location: ' . base_url($url));
     exit;
 }
 
 //FOR Registration 
 
-function isPostRequest(){
+function isPostRequest()
+{
     return $_SERVER['REQUEST_METHOD'] ==  "POST";
 }
 
-function getPostData($field, $default = null){
+function getPostData($field, $default = null)
+{
     return isset($_POST[$field]) ? trim($_POST[$field]) : $default;
 }
 
-?>
+
+function formatDate($date)
+{
+    return date('F j, Y', strtotime($date));
+}
+
+function isLoggedIn()
+{
+    if(session_status() === PHP_SESSION_NONE){
+        session_start();
+    }
+    
+
+    if(!isset($_SESSION['user_id'])){
+        redirect("login.php");
+    }
+}
