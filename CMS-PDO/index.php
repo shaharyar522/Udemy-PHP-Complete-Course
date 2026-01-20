@@ -17,29 +17,41 @@ $articles = $article->get_all();
 ?>
 
 <main class="container my-5">
-    <?php if (!empty($articles)): ?>
-        <?php foreach ($articles as $articleItem): ?>
-            <!-- Blog Post 1 -->
-            <div class="row mb-4">
-                <div class="col-md-4">
+    <?php if(!empty($articles)): ?>
+    <?php foreach ($articles as $articleItem): ?>
+    <!-- Blog Post 1 -->
+    <div class="row mb-4">
+        <div class="col-md-4">
+            <?php if(!empty($articleItem->image)): ?>
 
-                <?php if(!empty($articleItem->image)): ?>
-                    <img
+                <a href="<?php echo base_url("article.php?id=$articleItem->id"); ?>"><img
                         src="<?php echo htmlspecialchars($articleItem->image)?>"
                         class="img-fluid"
-                        alt="Blog Post Image">
-                </div>
-                <?php endif; ?>
-                <div class="col-md-8">
-                    
-                    <h2><?php echo htmlspecialchars($articleItem->title); ?></h2>
-                    <p>
-                        <?php echo htmlspecialchars($article->getExcerpt($articleItem->content, 50)) ?>
-                    </p>
-                    <a href="article.php?id=<?php echo $articleItem->id; ?>" class="btn btn-primary">Read More</a>
-                </div>
-            </div>
-        <?php endforeach; ?>
+                        alt="Blog Post Image"
+                        style="width: 350px;height: 200px"
+                ></a>
+
+            <?php else: ?>
+
+            <a href="<?php echo base_url("article.php?id=$articleItem->id"); ?>"> <img
+                    src="https://via.placeholder.com/350x200"
+                    class="img-fluid"
+                    alt="Blog Post Image"
+                ></a>
+
+         <?php endif; ?>
+        </div>
+        <div class="col-md-8">
+            <h2><?php echo htmlspecialchars($articleItem->title); ?></h2>
+            <p>
+
+               <?php echo htmlspecialchars($article->getExcerpt($articleItem->content, 90)) ?>
+            </p>
+            <a href="article.php?id=<?php echo $articleItem->id; ?>" class="btn btn-primary">Read More</a>
+        </div>
+    </div>
+
+   <?php endforeach; ?>
     <?php endif; ?>
 </main>
 

@@ -1,18 +1,37 @@
 <?php
 include('partials/admin/header.php');
- include('partials/admin/navbar.php');
+include('partials/admin/navbar.php');
 //now this is my isLoggedIn function that i am create in helper function 
 
 // now i am used in for session if login  can not then they redriect to login 
 // page
-isLoggedIn();
+
 
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    var_dump("ok");
+
+    $title = $_POST['title'];
+    $content = $_POST['content'];
+    $auther_id = $_SESSION['user_id'];
+    $created_at = $_POST['date'];
+
+
+    // UPLOADING IMAGE
+    $article = new Article();
+    $imagePath = $article->uploadImage($_FILES['featured_image']);
+
+    if (strpos($imagePath, 'error') === false) {
+
+        if ($article->create($title, $content, $auther_id, $created_at, $imagePath)) {
+            redirect("admin.php");
+        } else {
+            echo "Failed created artilce";
+        }
+        
+    }
 }
 
-
+checkUserLoggedIn();
 
 
 ?>
@@ -21,7 +40,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <!-- Main Content -->
 <main class="container my-5">
     <h2>Create New Article</h2>
-    <form action="create-article.php" method="POST">
+    <form action="create-article.php" method="POST" enctype="multipart/form-data">
         <div class="mb-3">
             <label for="title" class="form-label">Article Title *</label>
             <input type="text" name="title" class="form-control" id="title" placeholder="Enter article title" required>
@@ -44,7 +63,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </div>
         <div class="mb-3">
             <label for="image" class="form-label">Featured Image URL</label>
-            <input name="image" type="url" class="form-control" id="image" placeholder="Enter image URL">
+            <input name="featured_image" type="file" class="form-control" id="image" placeholder="Enter image URL">
         </div>
         <button type="submit" class="btn btn-success">Publish Article</button>
         <a href="admin.php" class="btn btn-secondary ms-2">Cancel</a>

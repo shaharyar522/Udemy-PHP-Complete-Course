@@ -16,8 +16,6 @@ if(isPostRequest()){
     } else {
         echo "Registration failed";
     }
-
-
 }
 
 
@@ -68,7 +66,7 @@ if(isPostRequest()){
                 <button type="submit" class="btn btn-primary w-100">Register</button>
             </form>
             <p class="mt-3 text-center">
-                Already have an account? <a href="login.html">Login here</a>.
+                Already have an account? <a href="login.php">Login here</a>.
             </p>
         </div>
     </div>
