@@ -1,9 +1,18 @@
-<?php 
+<?php
 require_once __DIR__ . '/../app/init.php';
+require_once __DIR__ . '/../routes/web.php';
 
-$test = new Test();
+
+$request = isset($_GET['url']) ? rtrim($_GET['url'], '/') : '';
 
 
-var_dump(get_declared_classes());
 
-?>
+
+if (array_key_exists('testing', $routes)) {
+    
+ 
+   
+    echo "True IT does Exits";
+} else {
+    echo "It does not exits ";
+}

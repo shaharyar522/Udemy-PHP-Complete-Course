@@ -1,0 +1,4 @@
+RewriteEngine On
+
+RewriteCond %{REQUEST_URI} !^/udemy/mvc-app/public/
+RewriteRule ^(.*)$ public/$1 [L]
