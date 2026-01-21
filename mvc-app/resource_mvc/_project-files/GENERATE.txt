@@ -1,0 +1,37 @@
+-- Create database if it doesn't exist
+CREATE DATABASE IF NOT EXISTS `mvc_app_db`;
+
+-- Use the mvc_app_db database
+USE `mvc_app_db`;
+
+-- Create users table
+CREATE TABLE `users` (
+  `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  `username` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `first_name` varchar(255) DEFAULT NULL,
+  `last_name` varchar(255) DEFAULT NULL,
+  `email` varchar(255) NOT NULL,
+  `phone` varchar(20) DEFAULT NULL,
+  `birthday` date DEFAULT NULL,
+  `organization` varchar(255) DEFAULT NULL,
+  `location` varchar(255) DEFAULT NULL,
+  `profile_image` varchar(255) DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP(),
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP() ON UPDATE CURRENT_TIMESTAMP()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- Insert 10 random records into users table with empty profile_image
+INSERT INTO `users` (
+  `username`, `password`, `first_name`, `last_name`, `email`, `phone`, `birthday`, `organization`, `location`, `profile_image`
+) VALUES
+  ('user1', '$2y$10$E1xampleHashForPassword1', 'John', 'Doe', 'user1@example.com', '555-0101', '1990-01-01', 'Company A', 'New York', ''),
+  ('user2', '$2y$10$E2xampleHashForPassword2', 'Jane', 'Smith', 'user2@example.com', '555-0102', '1991-02-02', 'Company B', 'Los Angeles', ''),
+  ('user3', '$2y$10$E3xampleHashForPassword3', 'Alice', 'Johnson', 'user3@example.com', '555-0103', '1992-03-03', 'Company C', 'Chicago', ''),
+  ('user4', '$2y$10$E4xampleHashForPassword4', 'Bob', 'Williams', 'user4@example.com', '555-0104', '1993-04-04', 'Company D', 'Houston', ''),
+  ('user5', '$2y$10$E5xampleHashForPassword5', 'Carol', 'Brown', 'user5@example.com', '555-0105', '1994-05-05', 'Company E', 'Phoenix', ''),
+  ('user6', '$2y$10$E6xampleHashForPassword6', 'David', 'Jones', 'user6@example.com', '555-0106', '1995-06-06', 'Company F', 'Philadelphia', ''),
+  ('user7', '$2y$10$E7xampleHashForPassword7', 'Eve', 'Garcia', 'user7@example.com', '555-0107', '1996-07-07', 'Company G', 'San Antonio', ''),
+  ('user8', '$2y$10$E8xampleHashForPassword8', 'Frank', 'Miller', 'user8@example.com', '555-0108', '1997-08-08', 'Company H', 'San Diego', ''),
+  ('user9', '$2y$10$E9xampleHashForPassword9', 'Grace', 'Davis', 'user9@example.com', '555-0109', '1998-09-09', 'Company I', 'Dallas', ''),
+  ('user10', '$2y$10$E10xampleHashForPassword10', 'Hank', 'Rodriguez', 'user10@example.com', '555-0110', '1999-10-10', 'Company J', 'San Jose', '');
