@@ -1,10 +1,26 @@
-<?php  
+<?php
 
-class HomeController {
+class HomeController
+{
+    public function index()
+    {
 
-public function index() {
-    return "returning Home view ";
+        $data = [
+            'title' => 'Home Page',
+            'message' => 'Welcome to the Home Page',
+        ];
+
+        render('home/index', $data , 'layouts/hero_layout');
+    }
+
+    public function about()
+    {
+
+        $data = [
+            'title' => 'About Page',
+            'message' => 'Welcome to the About Page',
+        ];
+
+        render('home/about', $data);
+    }
 }
-}
-
-?>

@@ -4,7 +4,7 @@ session_start();
 require_once __DIR__ . '/../config/config.php';  // config files hain 
 require_once __DIR__ . '/../config/database.php';  // database file hai
 
-require_once __DIR__ . 'helpers.php';
+require_once __DIR__ . '/helpers.php';
 
 spl_autoload_register(function ($class_name) {
     $paths = [

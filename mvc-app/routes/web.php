@@ -1,11 +1,9 @@
-<?php 
+<?php
 
 $routes = [
+    'GET' => [
+        '/'     => 'HomeController@index',
+        'about' => 'HomeController@about'
 
-    '' => 'HomeController@Index',
-    'testing' => 'HomeController@index@testing',
-
+    ]
 ];
-
-
-?>
