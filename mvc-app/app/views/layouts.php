@@ -14,6 +14,7 @@
     <!-- Navigation Bar -->
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
+
         <div class="container-fluid">
             <a class="navbar-brand" href="#">CMS PDO System</a>
             <button
@@ -51,14 +52,20 @@
                 </ul>
             </div>
         </div>
+        
     </nav>
 
     <!-- Header Section -->
     <header class="bg-dark text-white py-5">
+
         <div class="container">
+
             <h1 class="display-4">Welcome to the CMS PDO System</h1>
+
             <p class="lead">
+
                 Sharing insights, ideas, and stories.
+
             </p>
         </div>
     </header>

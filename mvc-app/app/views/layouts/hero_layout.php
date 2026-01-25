@@ -4,29 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home Page</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="<?php echo base_url('css/style.css');?>">
 </head>
 <body class="index">
 <nav>
     <ul>
         <li>
-            <a href="index.html">Home</a>
+            <a href="<?php echo base_url('index'); ?>">Home</a>
         </li>
 
         <!-- When the user is logged in -->
         <li>
-            <a href="admin.html">Admin</a>
+            <a href="<?php echo base_url('about'); ?>">Admin</a>
         </li>
         <li>
-            <a href="logout.html">Logout</a>
+            <a href="<?php echo base_url('logout'); ?>">Logout</a>
         </li>
 
         <!-- When the user is not logged in -->
         <li>
-            <a href="register.html">Register</a>
+            <a href="<?php echo base_url('register'); ?>">Register</a>
         </li>
         <li>
-            <a href="login.html">Login</a>
+            <a href="<?php echo base_url('login'); ?>">Login</a>
         </li>
     </ul>
 </nav>

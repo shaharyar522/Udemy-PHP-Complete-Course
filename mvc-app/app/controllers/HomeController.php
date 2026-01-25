@@ -5,12 +5,17 @@ class HomeController
     public function index()
     {
 
-        $data = [
-            'title' => 'Home Page',
-            'message' => 'Welcome to the Home Page',
-        ];
+    echo base_url('Helo');
 
-        render('home/index', $data , 'layouts/hero_layout');
+        // $data = [
+
+        //     'title' => 'Home Page',
+        //     'message' => 'Welcome to the Home Page',
+            
+        // ];
+
+        // render('home/index', $data , 'layouts/hero_layout');
+
     }
 
     public function about()
