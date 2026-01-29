@@ -1,31 +1,51 @@
 <?php
 
-class HomeController
-{
-    public function index()
-    {
 
-    echo base_url('Helo');
+class HomeController {
 
-        // $data = [
 
-        //     'title' => 'Home Page',
-        //     'message' => 'Welcome to the Home Page',
-            
-        // ];
+public function index(){
 
-        // render('home/index', $data , 'layouts/hero_layout');
+
+      $data = [
+       'title' => 'Home Page',
+       'message' => 'Welcome to the Home Page',
+      ];
+
+      render('home/index', $data, 'layouts/hero_layout');
 
     }
 
-    public function about()
-    {
+
+    public function about(){
+
+      $data = [
+       'title' => 'About Page',
+       'message' => 'Welcome to the About Page',
+      ];
+ 
+      render('home/about', $data);
+ 
+ 
+
+ 
+     }
+
+    public function contact(){
 
         $data = [
-            'title' => 'About Page',
+            'title' => 'Contact Page',
             'message' => 'Welcome to the About Page',
         ];
 
-        render('home/about', $data);
+        render('home/contact', $data);
+
+
+
+
     }
+
+
+
+
 }

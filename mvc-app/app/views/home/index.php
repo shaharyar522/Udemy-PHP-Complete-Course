@@ -1,7 +1,11 @@
 
 
 <h1>
-    <?= $title; ?>
+    <?php echo $title; ?>
+
+
+
+
 </h1>
 
-<h1><?=  $message;  ?></h1>
+<h2><?php echo $message; ?></h2>
